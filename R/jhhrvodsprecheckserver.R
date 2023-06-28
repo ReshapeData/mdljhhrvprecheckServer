@@ -20,12 +20,12 @@ viewsalaryodsserver <- function(input, output, session, dms_token) {
                           data = as.data.frame(data)
                           
                           data = tsdo::na_standard(data)
-                          names(data) = c('费用承担组织',
-                                          '个税申报组织',
-                                          '业务类型',
-                                          '银行-检查项',
-                                          '银行-数据源'
-                          )
+                          # names(data) = c('费用承担组织',
+                          #                 '个税申报组织',
+                          #                 '业务类型',
+                          #                 '银行-检查项',
+                          #                 '银行-数据源'
+                          # )
                           
                           #显示数据
                           tsui::run_dataTable2(id = 'hrv_precheck_view_data_ods', data = data)
@@ -57,13 +57,13 @@ viewsocialsecurityodsserver <- function(input, output, session, dms_token) {
                           
                           data = as.data.frame(data)
                           
-                          data = tsdo::na_standard(data)
-                          names(data) = c('费用承担组织',
-                                          '个税申报组织',
-                                          '业务类型',
-                                          '银行-检查项',
-                                          '银行-数据源'
-                          )
+                          # data = tsdo::na_standard(data)
+                          # names(data) = c('费用承担组织',
+                          #                 '个税申报组织',
+                          #                 '业务类型',
+                          #                 '银行-检查项',
+                          #                 '银行-数据源'
+                          # )
                           #显示数据
                           tsui::run_dataTable2(id = 'hrv_precheck_view_data_ods', data = data)
                           
