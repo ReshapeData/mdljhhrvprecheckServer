@@ -19,9 +19,9 @@ viewsalarystdserver <- function(input, output, session, dms_token) {
                         {
                           # 工资std表异常检查
                           data = mdljhhrvPreCheckPkg::ds_salaryStdCheck_query(FToken = "057A7F0E-F187-4975-8873-AF71666429AB")
-                          
+
                           data = as.data.frame(data)
-                          
+
                           data = tsdo::na_standard(data)
                           names(data) = c('费用承担组织',
                                           '个税申报组织',
@@ -29,17 +29,16 @@ viewsalarystdserver <- function(input, output, session, dms_token) {
                                           '银行-检查项',
                                           '银行-数据源'
                           )
-                          
+
                           #显示数据
                           tsui::run_dataTable2(id = 'hrv_precheck_view_data_std', data = data)
-                          
+
                         })
-    
+
   })
 }
 
-
-#' Title 预览社保数据
+# #' Title 预览社保数据
 #'
 #' @param input 输入
 #' @param output 输出
@@ -57,9 +56,9 @@ viewsocialsecuritystdserver <-
                           {
                             # 社保std表异常检查
                             data = mdljhhrvPreCheckPkg::ds_socialSecuryStdCheck_query(FToken = "057A7F0E-F187-4975-8873-AF71666429AB")
-                            
+
                             data = as.data.frame(data)
-                            
+
                             data = tsdo::na_standard(data)
                             names(data) = c('费用承担组织',
                                             '个税申报组织',
@@ -69,11 +68,11 @@ viewsocialsecuritystdserver <-
                             )
                             #显示数据
                             tsui::run_dataTable2(id = 'hrv_precheck_view_data_std', data = data)
-                            
-                            
-                            
+
+
+
                           })
-      
+
     })
   }
 
@@ -97,12 +96,12 @@ updatesalarystdserver <-
                           {
                             # 工资std表异常处理
                             mdljhhrvPreCheckPkg::ds_salaryStdCheck_deal(FToken = "057A7F0E-F187-4975-8873-AF71666429AB")
-                            
+
                             tsui::pop_notice('数据更新成功')
-                            
-                            
+
+
                           })
-      
+
     })
   }
 
@@ -125,12 +124,12 @@ updatesocialsecuritystdserver <-
                           {
                             # 社保std表异常处理
                             mdljhhrvPreCheckPkg::ds_socialSecuryOdsCheck_deal(FToken = "057A7F0E-F187-4975-8873-AF71666429AB")
-                            
+
                             tsui::pop_notice('数据更新成功')
-                            
-                            
+
+
                           })
-      
+
     })
   }
 
@@ -153,10 +152,10 @@ jhhrvstdprecheckServer <- function(input, output, session, dms_token) {
   viewsalarystdserver(input, output, session, dms_token)
   #预览社保
   viewsocialsecuritystdserver(input, output, session, dms_token)
-  
+
   #更新工资
   updatesalarystdserver(input, output, session, dms_token)
   # 更新社保
   updatesocialsecuritystdserver(input, output, session, dms_token)
-  
+
 }

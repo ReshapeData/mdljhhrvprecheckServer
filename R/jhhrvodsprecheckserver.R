@@ -1,6 +1,3 @@
-
-
-
 #' Title 预览工资数据
 #'
 #' @param input 输入
@@ -108,7 +105,7 @@ viewrulevoucherodsserver <- function(input, output, session, dms_token) {
                           )
                           #显示数据
                           tsui::run_dataTable2(id = 'hrv_precheck_view_data_ods', data = data)
-
+                          
                           
                         })
     
